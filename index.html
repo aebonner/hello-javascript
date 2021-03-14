@@ -2,18 +2,30 @@
 <html>
     <head>
         <script>
-function colorChange(){
+function doMagic(){
     console.log("Here the magic happens.");
     const myBox = document.getElementById('myBox');
     console.log(myBox);
     console.log(myBox.classList);
     myBox.classList.toggle('box-pink');
     myBox.classList.toggle('box-blue');
+    
+    let name = document.getElementById("name").value;
+
+    if(name == 'Amanda'){
+        alert("You're a wizard, Amanda!");
+    } else if(name == 'Andrew'){
+        alert("You're da bomb.com, Andrew!");
+    } else {
+        alert("That's a stupid name bruh!");
+    }
+
 }
         </script>
         <style>
-body {
+* {
     text-align: center;
+    font-family:'Papyrus', sans-serif;
 }
 
 .box {
@@ -38,11 +50,30 @@ button {
     margin-bottom: 20px;
     border-radius: 5px;
 }
+
+.form {
+    margin: 0 auto;
+}
+label{
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+input:focus, input:active {
+    border-color: magenta;
+    outline-color: magenta;
+}
         </style>
     </head>
 <body>
 <h1>Something something!</h1>
-<button onclick="colorChange()">Click me, bitch!</button>
+<div class="form">
+    <label for="name">Put your name here!</label><br>
+    <input type="text" id="name" name="name">
+</div>
+<button onclick="doMagic()">Click me, bitch!</button>
 <div id="myBox" class="box box-pink"></div>
 
 </body>
