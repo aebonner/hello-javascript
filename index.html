@@ -1,9 +1,49 @@
 <!DOCTYPE html>
 <html>
-<body>
+    <head>
+        <script>
+function colorChange(){
+    console.log("Here the magic happens.");
+    const myBox = document.getElementById('myBox');
+    console.log(myBox);
+    console.log(myBox.classList);
+    myBox.classList.toggle('box-pink');
+    myBox.classList.toggle('box-blue');
+}
+        </script>
+        <style>
+body {
+    text-align: center;
+}
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+.box {
+    width:300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.box-pink {
+    background-color: magenta;
+    transition-duration: 1s;
+}
+
+.box-blue {
+    background-color: blue;
+    transition-duration: 1s;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+        </style>
+    </head>
+<body>
+<h1>Something something!</h1>
+<button onclick="colorChange()">Click me, bitch!</button>
+<div id="myBox" class="box box-pink"></div>
 
 </body>
 </html>
