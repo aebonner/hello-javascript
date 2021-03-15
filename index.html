@@ -7,74 +7,106 @@ function doMagic(){
     const myBox = document.getElementById('myBox');
     console.log(myBox);
     console.log(myBox.classList);
-    myBox.classList.toggle('box-pink');
-    myBox.classList.toggle('box-blue');
+    myBox.classList.remove('box-red');
+    myBox.classList.add('heart');
+
+    const message = document.getElementById('message');
+    message.classList.add('show');
+    message.classList.remove('hide');
+
+    const hideButton = document.getElementById('myButton');
+    hideButton.classList.add('hide');
+    hideButton.classList.remove('show');
     
     let name = document.getElementById("name").value;
 
-    if(name == 'Amanda'){
-        alert("You're a wizard, Amanda!");
-    } else if(name == 'Andrew'){
-        alert("You're da bomb.com, Andrew!");
-    } else {
-        alert("That's a stupid name bruh!");
-    }
 
 }
         </script>
         <style>
 * {
     text-align: center;
-    font-family:'Papyrus', sans-serif;
+    font-family:'Lato', sans-serif;
+}
+.hide {
+   opacity: 0;
+    transition-duration: 1s;
+    margin-bottom:0;
+}
+
+.show {
+    display: inline-block;
+    transition-duration: 1s;
+}
+
+h3 {
+    transition-duration: 2s;
+    display:block !important;
 }
 
 .box {
     width:300px;
     height: 300px;
     margin: 0 auto;
+
 }
 
-.box-pink {
-    background-color: magenta;
+.box-red {
+    background-color: red;
     transition-duration: 1s;
 }
 
-.box-blue {
-    background-color: blue;
-    transition-duration: 1s;
+.heart {
+  background-color: red;
+  display: block;
+  height: 150px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 150px;
+  transition-duration: 1s;
+  margin-top: 70px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 150px;
+  position: absolute;
+  width: 150px;
+  transition-duration: 1s;
+}
+
+.heart:before {
+  top: -70px;
+  left: 0;
+  transition-duration: 1s;
+}
+
+.heart:after {
+  left: 70px;
+  top: 0;
+  transition-duration: 1s;
 }
 
 button {
     background-color: white;
     border: 1px solid black;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     border-radius: 5px;
 }
 
-.form {
-    margin: 0 auto;
-}
-label{
-    margin-bottom: 10px;
-}
-
-input {
-    margin-bottom: 10px;
-}
-input:focus, input:active {
-    border-color: magenta;
-    outline-color: magenta;
-}
         </style>
     </head>
 <body>
-<h1>Something something!</h1>
-<div class="form">
-    <label for="name">Put your name here!</label><br>
-    <input type="text" id="name" name="name">
+<h1>Hey, Andrew! Click the button :) </h1>
+
 </div>
-<button onclick="doMagic()">Click me, bitch!</button>
-<div id="myBox" class="box box-pink"></div>
+<button id="myButton" class="show" onclick="doMagic()">Click this button!</button>
+<h3 id="message" class="hide" >Hope you feel better 😘</h3>
+<div id="myBox" class="box box-red"></div>
 
 </body>
 </html>
